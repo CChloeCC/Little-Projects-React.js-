@@ -1,0 +1,134 @@
+.container {
+  background: #e8e8e8 0% 0% no-repeat;
+  width: 1280px;
+  height: 800px;
+  position: relative;
+}
+.step {
+  /* box-sizing: border-box; */
+  box-sizing: content-box;
+  border: #e8e8e8 3px solid;
+  height: 80px;
+  display: flex;
+  background-color: #fff;
+  justify-content: center;
+  position: relative;
+  transition: all 1s ease-in-out;
+}
+.stepBtn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  /* border: #000000 1px solid; */
+  position: absolute;
+  text-align: center;
+  padding-top: 28px;
+}
+.step > p {
+  width: 613px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  /* font: normal normal bold 20px/27px Open Sans;
+  letter-spacing: 0px;
+  color: #000000; */
+}
+.step > p p {
+  font: normal normal bold 20px/27px Open Sans;
+  letter-spacing: 0px;
+  color: #000000;
+  line-height: 80px;
+}
+/* canvas {
+  width: 100%;
+} */
+
+/* 下工具欄 */
+.toolBox {
+  width: 730px;
+  height: 80px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 4px 16px #00000029;
+  border-radius: 40px;
+
+  display: flex;
+  align-items: center;
+
+  font: normal normal bold 20px/27px Open Sans;
+  position: relative;
+  position: absolute;
+  left: 275px;
+  bottom: 40px;
+}
+.pen {
+  width: 43px;
+  /* background-color: sandybrown; */
+  margin: 0 42px;
+  text-align: center;
+}
+.size {
+  margin: 0 40px 0 0;
+  width: 168px;
+  /* background-color: salmon; */
+  display: flex;
+  align-items: center;
+}
+.size input {
+  width: 74px;
+  height: 48px;
+  background: #e8e8e8 0% 0% no-repeat padding-box;
+  border-radius: 24px;
+  border: none;
+
+  text-align: center;
+  margin: 0 8px 0 16px;
+  padding: 0 5px;
+
+  font: normal normal bold 20px/27px Open Sans;
+  letter-spacing: 0px;
+  color: #000000;
+}
+
+.size input:focus {
+  outline: none;
+}
+
+.color {
+  /* background-color: slateblue; */
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+.color p {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin: 0 4px;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.color p:first-of-type {
+  margin-left: 16px;
+  border: 2px solid #000000;
+}
+.color p:nth-of-type(2) {
+  color: #fff;
+}
+
+.toolBtn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  /* border: #000000 1px solid; */
+  position: absolute;
+  text-align: center;
+  padding-top: 4px;
+}
