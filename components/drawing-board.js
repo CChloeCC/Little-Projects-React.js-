@@ -30,7 +30,7 @@ export default function DrawingBoard() {
 
     ctx.strokeStyle = color
     ctx.lineWidth = size
-  }, [size, color])
+  }, [])
 
   const handleMouseDown = (e) => {
     // const canvas = canvasRef.current

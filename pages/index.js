@@ -2,6 +2,7 @@
 // import Image from 'next/image'
 
 import DrawingBoard from '@/components/drawing-board'
+import WorldClock from '@/components/world-clock'
 import { useState } from 'react'
 
 export default function Home() {
@@ -20,13 +21,21 @@ export default function Home() {
         <p
           role="button"
           onClick={() => {
-            setShow('Clock')
+            setShow('World-Clock')
           }}
         >
-          Clock
+          World-Clock
         </p>
       </div>
-      <div>{show === 'Drawing-Board' ? <DrawingBoard /> : ''}</div>
+      <div>
+        {show === 'Drawing-Board' ? (
+          <DrawingBoard />
+        ) : show === 'World-Clock' ? (
+          <WorldClock />
+        ) : (
+          ''
+        )}
+      </div>
     </>
   )
 }
