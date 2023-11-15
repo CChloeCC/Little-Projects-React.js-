@@ -18,10 +18,9 @@ export default function Document() {
         crossOrigin="true"
       />
       <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Open+Sans:wght@400;600;700;800&display=swap"
         rel="stylesheet"
       />
-
       <body>
         <Main />
         <NextScript />
