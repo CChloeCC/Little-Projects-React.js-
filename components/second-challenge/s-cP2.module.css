@@ -1,0 +1,101 @@
+.container {
+  width: 1280px;
+  height: 800px;
+  background: #ff9d00 0% 0% no-repeat padding-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.info,
+.eval {
+  display: flex;
+  justify-content: space-between;
+  width: 730px;
+  margin: 0;
+}
+
+.name {
+  /* box-sizing: content-box; */
+  font: normal normal bold 30px/30px Roboto Condensed;
+  letter-spacing: 0px;
+  color: #ffffff;
+  border: #ffffff solid 4px;
+  width: 342px;
+  height: 51px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.score {
+  display: flex;
+  font: normal normal bold 44px/44px Roboto Condensed;
+  letter-spacing: 0px;
+  color: #000000;
+  align-items: center;
+}
+.score p {
+  width: 114px;
+  height: 55px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  font: normal normal bold 30px/30px Roboto Condensed;
+  letter-spacing: 0px;
+  color: #ff9d00;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+.time {
+  font: italic normal bold 96px/96px Roboto Condensed;
+  letter-spacing: 0px;
+  color: #ffffff;
+}
+.eval {
+  margin-top: 114px;
+}
+.cal {
+  width: 445px;
+  height: 131px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font: normal normal bold 112px/131px Roboto Condensed;
+  letter-spacing: 0px;
+  color: #ffffff;
+}
+/* .cal span {
+  line-height: 131px;
+} */
+.cal span:nth-child(1),
+.cal span:nth-child(3) {
+  font: normal normal bold 112px/112px Roboto Condensed;
+  letter-spacing: 0px;
+  color: #000000;
+}
+.num {
+  width: 255px;
+}
+.num input {
+  width: 255px;
+  height: 131px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  text-align: center;
+  font: normal normal bold 112px/131px Roboto Condensed;
+  letter-spacing: 0px;
+  color: #000000;
+  margin: 0;
+  border: none;
+  outline: none;
+}
+
+.num span {
+  font: italic normal normal 24px/16px Roboto Condensed;
+  letter-spacing: 0px;
+  color: #ffffff;
+  margin: 0 25px;
+}

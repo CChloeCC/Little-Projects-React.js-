@@ -10,59 +10,46 @@ export default function DrawingBoard() {
   const canvasRef = useRef(null)
   const ctxRef = useRef(null)
   const [drawing, setDrawing] = useState(false)
-  // const [prevPosition, setPrevPosition] = useState({ x: 0, y: 0 })
-  // const [currentPosition, setCurrentPosition] = useState({ x: 0, y: 0 })
+
   const [redoStack, setRedoStack] = useState([])
   const [undoStack, setUndoStack] = useState([])
-  // console.log(undoStack)
 
   useEffect(() => {
     const canvas = canvasRef.current
-    //將Canvas實際渲染的大小設定給canvas變數的寬高
     canvas.width = canvas.clientWidth
     canvas.height = canvas.clientHeight
     const ctx = canvas.getContext('2d')
-    ctxRef.current = ctx // 將 ctx 存入 useRef 中
+    ctxRef.current = ctx
 
-    ctx.lineJoin = 'round' // 設定線條的交會處為圓角
-    ctx.lineCap = 'round' // 設定線條的端點為圓角
-    ctx.imageSmoothingEnabled = true //抗鋸齒效果
+    ctx.lineJoin = 'round'
+    ctx.lineCap = 'round'
+    ctx.imageSmoothingEnabled = true
 
     ctx.strokeStyle = color
     ctx.lineWidth = size
   }, [])
 
   const handleMouseDown = (e) => {
-    // const canvas = canvasRef.current
-    const ctx = ctxRef.current // 從 useRef 中取得最新的 ctx
-    // const rect = canvas.getBoundingClientRect()
+    const ctx = ctxRef.current
+
     const x = e.nativeEvent.offsetX
     const y = e.nativeEvent.offsetY
 
     ctx.beginPath()
-    ctx.moveTo(x, y) // 設定起始點
+    ctx.moveTo(x, y)
 
     setDrawing(true)
-
-    // setPrevPosition({ x, y })
-    // setCurrentPosition({ x, y })
-
-    // setRedoStack([])
   }
   const handleMouseMove = (e) => {
     if (!drawing) return
-    // const canvas = canvasRef.current
-    const ctx = ctxRef.current // 從 useRef 中取得最新的 ctx
-    // const rect = canvas.getBoundingClientRect()
+
+    const ctx = ctxRef.current
 
     const x = e.nativeEvent.offsetX
     const y = e.nativeEvent.offsetY
 
     ctx.lineTo(x, y)
     ctx.stroke()
-
-    // setPrevPosition({ ...currentPosition })
-    // setCurrentPosition({ x, y })
   }
 
   const handleMouseUp = (e) => {
@@ -70,9 +57,9 @@ export default function DrawingBoard() {
       setDrawing(false)
       const canvas = canvasRef.current
 
-      const snapshot = canvas.toDataURL() // 將畫布轉為 data URL 快照
+      const snapshot = canvas.toDataURL()
 
-      setUndoStack([...undoStack, snapshot]) //存入 undoStack
+      setUndoStack([...undoStack, snapshot])
     }
   }
 
@@ -140,12 +127,11 @@ export default function DrawingBoard() {
   const handleSave = () => {
     const canvas = canvasRef.current
     const dataURL = canvas.toDataURL('image/png')
-    // const dataURL = canvas.toDataURL() //toDataURL()預設會返回 PNG 格式的 data URL >>> data:image/png;base64,Base64編碼數據
 
-    const downloadLink = document.createElement('a') // 建立一個下載連結
+    const downloadLink = document.createElement('a')
     downloadLink.href = dataURL
-    downloadLink.download = 'drawing.png' // 下載的檔案名稱
-    downloadLink.click() // 模擬點擊下載連結
+    downloadLink.download = 'drawing.png'
+    downloadLink.click()
   }
 
   return (

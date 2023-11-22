@@ -119,7 +119,7 @@ export default function AQI() {
               </div>
               <div className={styles.info}>
                 {infoList.map((v, i) => {
-                  const foundInfo = dataDir.find((f) => f.id === v)
+                  const foundInfo = dataDir?.find((f) => f.id === v)
                   return (
                     <>
                       <div className={styles.infoItem}>
