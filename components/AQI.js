@@ -18,9 +18,15 @@ export default function AQI() {
   ]
   const [site, setSite] = useState([])
   useEffect(() => {
+    const year = new Date().getFullYear()
+    const month = new Date().getMonth() + 1
+    const date = new Date().getDate()
+    const hour = new Date().getHours()
     axios
       .get(
-        'https://data.moenv.gov.tw/api/v2/aqx_p_488?format=json&api_key=d2f3ce4e-97c8-4029-af41-8a80276cd838&filters=county,EQ,臺北市,新北市,臺中市,宜蘭市,花蓮縣,高雄市|datacreationdate,LE,2023-11-13 19:00:00|datacreationdate,GR,2023-11-13 18:00:00',
+        `https://data.moenv.gov.tw/api/v2/aqx_p_488?format=json&api_key=d2f3ce4e-97c8-4029-af41-8a80276cd838&filters=county,EQ,臺北市,新北市,臺中市,宜蘭市,花蓮縣,高雄市|datacreationdate,LE,${year}-${month}-${date} ${hour}:00:00|datacreationdate,GR,${year}-${month}-${date} ${
+          hour - 1
+        }:00:00`,
       )
       .then((res) => {
         setData(res.data.records)
@@ -192,7 +198,7 @@ export default function AQI() {
             display: flex;
             padding-top: 2px;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: space-around;
             align-items: start;
 
             overflow-y: scroll;
@@ -203,7 +209,7 @@ export default function AQI() {
             &::-webkit-scrollbar-track {
               background-color: transparent;
               border-radius: 40px;
-              // margin: 20px;
+              padding-left: 5px;
             }
             &::-webkit-scrollbar-thumb {
               border-radius: 40px;

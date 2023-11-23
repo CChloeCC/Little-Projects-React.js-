@@ -31,6 +31,8 @@ export default function DrawingBoard() {
 
   const handleMouseDown = (e) => {
     const ctx = ctxRef.current
+    ctx.strokeStyle = color
+    ctx.lineWidth = size
 
     const x = e.nativeEvent.offsetX
     const y = e.nativeEvent.offsetY

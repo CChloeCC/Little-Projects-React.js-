@@ -5,69 +5,76 @@ import WorldClock from '@/components/world-clock'
 import { useState } from 'react'
 
 export default function Home() {
-  const [show, setShow] = useState('')
+  const [show, setShow] = useState('World-Clock')
   return (
     <>
-      <div className=" menu">
-        <div
-          className="menuItem"
-          role="button"
-          onClick={() => {
-            setShow('Drawing-Board')
-          }}
-        >
-          <p className="menuItemF">Drawing-Board</p>
-          <p className="menuItemB"> Drawing-Board</p>
+      <div className="container">
+        <div className=" menu">
+          <div
+            className="menuItem"
+            role="button"
+            onClick={() => {
+              setShow('World-Clock')
+            }}
+          >
+            <p className="menuItemF"> World-Clock</p>
+            <p className="menuItemB"> World-Clock</p>
+          </div>{' '}
+          <div
+            className="menuItem"
+            role="button"
+            onClick={() => {
+              setShow('Drawing-Board')
+            }}
+          >
+            <p className="menuItemF">Drawing-Board</p>
+            <p className="menuItemB"> Drawing-Board</p>
+          </div>
+          <div
+            className="menuItem"
+            role="button"
+            onClick={() => {
+              setShow('AQI')
+            }}
+          >
+            <p className="menuItemF"> Air Quality Index</p>
+            <p className="menuItemB"> Air Quality Index</p>
+          </div>
+          <div
+            className="menuItem"
+            role="button"
+            onClick={() => {
+              setShow('Second-Challenge')
+            }}
+          >
+            <p className="menuItemF"> Second-Challenge</p>
+            <p className="menuItemB"> Second-Challenge</p>
+          </div>
         </div>
-        <div
-          className="menuItem"
-          role="button"
-          onClick={() => {
-            setShow('World-Clock')
-          }}
-        >
-          <p className="menuItemF"> World-Clock</p>
-          <p className="menuItemB"> World-Clock</p>
+        <div>
+          {show === 'Drawing-Board' ? (
+            <DrawingBoard />
+          ) : show === 'World-Clock' ? (
+            <WorldClock />
+          ) : show === 'AQI' ? (
+            <AQI />
+          ) : show === 'Second-Challenge' ? (
+            <SecondChallenge />
+          ) : (
+            ''
+          )}
         </div>
-        <div
-          className="menuItem"
-          role="button"
-          onClick={() => {
-            setShow('AQI')
-          }}
-        >
-          <p className="menuItemF"> AQI</p>
-          <p className="menuItemB"> AQI</p>
-        </div>
-        <div
-          className="menuItem"
-          role="button"
-          onClick={() => {
-            setShow('Second-Challenge')
-          }}
-        >
-          <p className="menuItemF"> Second-Challenge</p>
-          <p className="menuItemB"> Second-Challenge</p>
-        </div>
-      </div>
-      <div>
-        {show === 'Drawing-Board' ? (
-          <DrawingBoard />
-        ) : show === 'World-Clock' ? (
-          <WorldClock />
-        ) : show === 'AQI' ? (
-          <AQI />
-        ) : show === 'Second-Challenge' ? (
-          <SecondChallenge />
-        ) : (
-          ''
-        )}
       </div>
       <style jsx>{`
+        .container {
+          margin: 100px auto;
+        }
         .menu {
           width: 1280px;
           height: 100px;
           display: flex;
+          justify-content: space-between;
+          margin-bottom: 30px;
         }
         .menuItem {
           width: 230px;

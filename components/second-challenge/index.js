@@ -4,16 +4,13 @@ import stylesP2 from './s-cP2.module.css'
 import stylesP3 from './s-cP3.module.css'
 
 export default function SecondChallenge() {
-  const [sec, setSec] = useState(30)
-  console.log(sec)
+  const [sec, setSec] = useState(0)
+
   const [evalBox, setEvalBox] = useState([])
-  console.log(evalBox)
 
   const [userAns, setUserAns] = useState('')
-  console.log(userAns)
 
   const [score, setScore] = useState(0)
-  console.log(score)
 
   const ope = () => {
     const opeOptions = Math.floor(Math.random() * 4) + 1
@@ -68,9 +65,9 @@ export default function SecondChallenge() {
   }
 
   const question = () => {
-    if (sec > 20) {
+    if (sec > 40) {
       forEvalBox(9, 1)
-    } else if (sec > 10) {
+    } else if (sec > 20) {
       forEvalBox(90, 10)
     } else {
       forEvalBox(900, 100)
@@ -88,7 +85,7 @@ export default function SecondChallenge() {
         className={stylesP3.btn}
         onClick={() => {
           setShow('p1')
-          setSec(30)
+          setSec(60)
         }}
       >
         TRY AGAIN!
@@ -125,7 +122,7 @@ export default function SecondChallenge() {
               setUserAns(e.target.value)
             }}
             onKeyDown={(e) => {
-              if (e.key == 'Enter') {
+              if (e.key == 'Enter' && userAns !== '') {
                 if (sec > 20) {
                   userAns == evalBox[3] ? setScore(score + 1) : null
                 } else {
@@ -162,7 +159,7 @@ export default function SecondChallenge() {
           className={stylesP1.btn}
           onClick={() => {
             setScore(0)
-            setSec(30)
+            setSec(60)
             question()
             setShow('p2')
           }}
