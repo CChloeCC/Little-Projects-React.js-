@@ -69,7 +69,6 @@
 .line {
   border-top: 3px dotted black;
   width: 760px;
-  /* height: 1; */
 }
 .city p:nth-of-type(3) {
   font: normal normal bold 16px/24px Open Sans;
@@ -79,8 +78,6 @@
 .data {
   display: flex;
   justify-content: space-between;
-  /* 
-  width: 730px; */
 }
 .detail {
   width: 350px;
@@ -88,15 +85,21 @@
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 3px solid #000000;
 }
+
+.siteBox {
+  display: flex;
+  align-items: flex-start;
+}
 .detail .selectedSite,
 .siteBox div {
+  height: 97px;
   display: flex;
-
   border-bottom: 3px solid #000000;
 }
 .siteBox div {
+  display: flex;
   border: 3px solid #000000;
-  margin-bottom: 30px;
+  margin: 3px 3px 30px 3px;
 }
 
 .detail .info {

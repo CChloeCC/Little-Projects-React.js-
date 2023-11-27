@@ -22,6 +22,7 @@ export default function AQI() {
     const month = new Date().getMonth() + 1
     const date = new Date().getDate()
     const hour = new Date().getHours()
+
     axios
       .get(
         `https://data.moenv.gov.tw/api/v2/aqx_p_488?format=json&api_key=d2f3ce4e-97c8-4029-af41-8a80276cd838&filters=county,EQ,臺北市,新北市,臺中市,宜蘭市,花蓮縣,高雄市|datacreationdate,LE,${year}-${month}-${date} ${hour}:00:00|datacreationdate,GR,${year}-${month}-${date} ${
@@ -87,7 +88,6 @@ export default function AQI() {
                     不健康
                   </td>
                   <td>
-                    {' '}
                     對所有族群
                     <br />
                     不健康
@@ -106,12 +106,12 @@ export default function AQI() {
           <div className={styles.data}>
             <div className={styles.detail}>
               <div className={styles.selectedSite}>
-                <p className={styles.name}>{site.sitename}</p>
+                <p className={styles.name}>{site?.sitename}</p>
                 <p
                   className={styles.num}
                   style={{
                     backgroundColor:
-                      site.aqi &&
+                      site?.aqi &&
                       range.find((v) => {
                         return (
                           v[0] <= parseInt(site.aqi) &&
@@ -120,7 +120,7 @@ export default function AQI() {
                       })[2],
                   }}
                 >
-                  {site.aqi}
+                  {site?.aqi}
                 </p>
               </div>
               <div className={styles.info}>
@@ -132,14 +132,14 @@ export default function AQI() {
                         <p className={styles.nameZh}>
                           {foundInfo && foundInfo.info.label.split('[')[0]}
                           <span>
-                            {v}({' '}
+                            {v}(
                             {foundInfo &&
                               foundInfo.info.label.split('[')[1].slice(0, -1)}
                             )
-                          </span>{' '}
+                          </span>
                         </p>
-                        <p className={styles.num}>{site[v]}</p>
-                      </div>{' '}
+                        <p className={styles.num}>{site?.[v]}</p>
+                      </div>
                     </>
                   )
                 })}
@@ -196,12 +196,11 @@ export default function AQI() {
             height: 535px;
             width: 730px;
             display: flex;
-            padding-top: 2px;
+            padding-top: 15px;
             flex-wrap: wrap;
-            justify-content: space-around;
             align-items: start;
-
             overflow-y: scroll;
+
             &::-webkit-scrollbar {
               height: 5px;
               width: 5px;
