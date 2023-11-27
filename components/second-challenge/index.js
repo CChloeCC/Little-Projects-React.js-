@@ -4,7 +4,7 @@ import stylesP2 from './s-cP2.module.css'
 import stylesP3 from './s-cP3.module.css'
 
 export default function SecondChallenge() {
-  const [sec, setSec] = useState(0)
+  const [sec, setSec] = useState(60)
 
   const [evalBox, setEvalBox] = useState([])
 
