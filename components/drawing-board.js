@@ -143,7 +143,7 @@ export default function DrawingBoard() {
           className={styles.step + ' '}
           style={{ display: btnTop == true ? 'flex' : 'none' }}
         >
-          <p className=" ">
+          <div className=" ">
             <p
               onClick={() => {
                 handleSave()
@@ -172,7 +172,7 @@ export default function DrawingBoard() {
             >
               REDO
             </p>
-          </p>
+          </div>
         </div>
         <canvas
           ref={canvasRef}

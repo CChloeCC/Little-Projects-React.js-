@@ -17,6 +17,8 @@ export default function AQI() {
     [301, 400, '#AD1774'],
   ]
   const [site, setSite] = useState([])
+  console.log(site)
+
   useEffect(() => {
     const year = new Date().getFullYear()
     const month = new Date().getMonth() + 1
@@ -30,6 +32,7 @@ export default function AQI() {
         }:00:00`,
       )
       .then((res) => {
+        // console.log(res)
         setData(res.data.records)
         setDataDir(res.data.fields)
         setCities([...new Set(res.data.records.map((v) => v.county))])
@@ -127,20 +130,18 @@ export default function AQI() {
                 {infoList.map((v, i) => {
                   const foundInfo = dataDir?.find((f) => f.id === v)
                   return (
-                    <>
-                      <div className={styles.infoItem}>
-                        <p className={styles.nameZh}>
-                          {foundInfo && foundInfo.info.label.split('[')[0]}
-                          <span>
-                            {v}(
-                            {foundInfo &&
-                              foundInfo.info.label.split('[')[1].slice(0, -1)}
-                            )
-                          </span>
-                        </p>
-                        <p className={styles.num}>{site?.[v]}</p>
-                      </div>
-                    </>
+                    <div className={styles.infoItem} key={i}>
+                      <p className={styles.nameZh}>
+                        {foundInfo && foundInfo.info.label.split('[')[0]}
+                        <span>
+                          {v}(
+                          {foundInfo &&
+                            foundInfo.info.label.split('[')[1].slice(0, -1)}
+                          )
+                        </span>
+                      </p>
+                      <p className={styles.num}>{site?.[v]}</p>
+                    </div>
                   )
                 })}
               </div>
