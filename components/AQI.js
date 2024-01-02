@@ -32,7 +32,7 @@ export default function AQI() {
         }:00:00`,
       )
       .then((res) => {
-        // console.log(res)
+        console.log(res)
         setData(res.data.records)
         setDataDir(res.data.fields)
         setCities([...new Set(res.data.records.map((v) => v.county))])

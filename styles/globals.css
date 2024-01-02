@@ -3,7 +3,10 @@
   margin: 0;
 }
 .home_container {
-  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 .home_menu {
   width: 1280px;

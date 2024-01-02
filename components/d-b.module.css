@@ -5,7 +5,6 @@
   position: relative;
 }
 .step {
-  /* box-sizing: border-box; */
   box-sizing: content-box;
   border: #e8e8e8 3px solid;
   height: 80px;
@@ -20,31 +19,26 @@
   height: 56px;
   border-radius: 50%;
   background: #ffffff 0% 0% no-repeat padding-box;
-  /* border: #000000 1px solid; */
   position: absolute;
   text-align: center;
   padding-top: 28px;
+  cursor: pointer;
 }
 .step div {
   width: 613px;
   height: 80px;
   display: flex;
   justify-content: space-between;
-  margin: 0;
+  margin: 30px;
   padding: 0;
-  /* font: normal normal bold 20px/27px Open Sans;
-  letter-spacing: 0px;
-  color: #000000; */
 }
 .step p {
   font: normal normal bold 20px/27px Open Sans;
   letter-spacing: 0px;
   color: #000000;
   line-height: 80px;
+  cursor: pointer;
 }
-/* canvas {
-  width: 100%;
-} */
 
 /* 下工具欄 */
 .toolBox {
