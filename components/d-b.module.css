@@ -29,7 +29,7 @@
   height: 80px;
   display: flex;
   justify-content: space-between;
-  margin: 30px;
+  margin: 0px;
   padding: 0;
 }
 .step p {
@@ -42,33 +42,34 @@
 
 /* 下工具欄 */
 .toolBox {
-  width: 730px;
-  height: 80px;
   background: #ffffff 0% 0% no-repeat padding-box;
   box-shadow: 0px 4px 16px #00000029;
   border-radius: 40px;
 
   display: flex;
   align-items: center;
-
   font: normal normal bold 20px/27px Open Sans;
   position: relative;
   position: absolute;
-  left: 275px;
+  left: 400px;
   bottom: 40px;
+}
+.toolBox label {
+  width: 140px;
+  display: flex;
+  justify-content: space-between;
 }
 .pen {
   width: 43px;
-  /* background-color: sandybrown; */
   margin: 0 42px;
   text-align: center;
 }
 .size {
   margin: 0 40px 0 0;
   width: 168px;
-  /* background-color: salmon; */
   display: flex;
   align-items: center;
+  z-index: 1;
 }
 .size input {
   width: 74px;
@@ -90,13 +91,6 @@
   outline: none;
 }
 
-.color {
-  /* background-color: slateblue; */
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-}
 .color p {
   width: 48px;
   height: 48px;
@@ -119,10 +113,13 @@
 .toolBtn {
   width: 56px;
   height: 56px;
+  top: -32px;
+  left: 220px;
   border-radius: 50%;
   background: #ffffff 0% 0% no-repeat padding-box;
-  /* border: #000000 1px solid; */
+  cursor: pointer;
   position: absolute;
   text-align: center;
   padding-top: 4px;
+  /* z-index: 3; */
 }

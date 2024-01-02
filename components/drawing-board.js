@@ -5,6 +5,7 @@ export default function DrawingBoard() {
   const [btnTop, setBtnTop] = useState(true)
   const colors = ['#FFFFFF', '#000000', '#9BFFCD', '#00CC99', '#01936F']
   const [color, setColor] = useState('#FFFFFF')
+
   const [size, setSize] = useState(3)
 
   const canvasRef = useRef(null)
@@ -208,16 +209,13 @@ export default function DrawingBoard() {
           style={
             btnTop === true
               ? {
-                  width: '730px',
+                  width: '500px',
                   height: '80px',
-                  left: '275px',
-                  margin: '0',
                 }
               : {
                   width: '56px',
                   height: '56px',
                   left: '616px',
-
                   overflow: 'hidden',
                 }
           }
@@ -250,25 +248,19 @@ export default function DrawingBoard() {
             />
             px
           </div>
-          <div className={styles.color}>
-            <span>COLOR:</span>
-            {colors.map((v, i) => {
-              return (
-                <p
-                  key={i}
-                  style={{ backgroundColor: `${v}`, cursor: 'pointer' }}
-                  onClick={() => {
-                    setColor(v)
-                  }}
-                >
-                  {v === color ? 'v' : ''}
-                </p>
-              )
-            })}
-          </div>
+          <label>
+            COLOR:
+            <input
+              type="color"
+              value={color}
+              onChange={(e) => {
+                setColor(e.target.value)
+              }}
+            />
+          </label>
+
           <div
             className={styles.toolBtn}
-            style={{ top: '-32px', left: '337px' }}
             onClick={() => {
               setBtnTop(!btnTop)
             }}

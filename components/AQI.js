@@ -17,28 +17,35 @@ export default function AQI() {
     [301, 400, '#AD1774'],
   ]
   const [site, setSite] = useState([])
-  console.log(site)
+  // console.log(site)
 
   useEffect(() => {
     const year = new Date().getFullYear()
-    const month = new Date().getMonth() + 1
-    const date = new Date().getDate()
+    const month =
+      new Date().getMonth() + 1 < 10
+        ? `0${new Date().getMonth() + 1}`
+        : new Date().getMonth() + 1
+    const date =
+      new Date().getDate() < 10
+        ? `0${new Date().getDate()}`
+        : new Date().getDate()
     const hour = new Date().getHours()
 
     axios
       .get(
-        `https://data.moenv.gov.tw/api/v2/aqx_p_488?format=json&api_key=d2f3ce4e-97c8-4029-af41-8a80276cd838&filters=county,EQ,臺北市,新北市,臺中市,宜蘭市,花蓮縣,高雄市|datacreationdate,LE,${year}-${month}-${date} ${hour}:00:00|datacreationdate,GR,${year}-${month}-${date} ${
+        `https://data.moenv.gov.tw/api/v2/aqx_p_488?format=json&language=zh&api_key=d2f3ce4e-97c8-4029-af41-8a80276cd838&filters=county,EQ,臺北市,新北市,臺中市,宜蘭市,花蓮縣,高雄市|datacreationdate,LE,${year}-${month}-${date} ${
           hour - 1
-        }:00:00`,
+        }:00:00|datacreationdate,GT,${year}-${month}-${date} ${hour - 2}:00:00`,
       )
       .then((res) => {
-        console.log(res)
+        console.log(res.data)
         setData(res.data.records)
         setDataDir(res.data.fields)
         setCities([...new Set(res.data.records.map((v) => v.county))])
         setCity(res.data.records.filter((v) => v.county === '臺北市'))
         setSite(res.data.records.filter((v) => v.sitename === '陽明')[0])
       })
+      .catch((error) => console.log(error))
   }, [])
 
   const infoList = ['o3', 'pm10', 'pm2.5', 'co', 'so2', 'no2']

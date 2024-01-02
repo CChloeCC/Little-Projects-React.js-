@@ -13,7 +13,6 @@
   height: 100px;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 30px;
 }
 .home_menuItem {
   width: 230px;
@@ -45,6 +44,6 @@
   color: #ffffff;
   backface-visibility: hidden;
 }
-.menuItem:hover {
+.home_menuItem:hover {
   transform: rotateY(-180deg);
 }
